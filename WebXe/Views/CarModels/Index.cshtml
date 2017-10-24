@@ -13,15 +13,15 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-            @if (Model.ListImages.Count > 0)
-            {
-                <img src="@Url.Action("GetImage", new { imageid = Model.ListImages[0].Id })" />
-                Model.ListImages.RemoveAt(0);
-            }
-            else
-            {
-                <img src="~/Source/noimage.png" />
-            }   
+                @if (Model.ListImages.Count > 0)
+                {
+                    <img src="@Url.Action("GetImage", new { imageid = Model.ListImages[0].Id })" />
+                    Model.ListImages.RemoveAt(0);
+                }
+                else
+                {
+                    <img src="~/Source/noimage.png" />
+                }   
             </div>
 
             @foreach (var images in Model.ListImages)
@@ -43,6 +43,7 @@
         </a>
     </div>
 </div>
+<h4>Liên Hệ Admin để biết thêm chi tiết.</h4>
 <h3>Mô tả: @Model.Content</h3>
 <h3>Loại xe: @Model.FormatType(Model.CarType)</h3>
 

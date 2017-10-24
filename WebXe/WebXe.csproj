@@ -216,26 +216,6 @@
     <Compile Include="Migrations\201710232034578_ChangeCarModelToId.Designer.cs">
       <DependentUpon>201710232034578_ChangeCarModelToId.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710232055550_SomethingChange.cs" />
-    <Compile Include="Migrations\201710232055550_SomethingChange.Designer.cs">
-      <DependentUpon>201710232055550_SomethingChange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710232153342_ChangeSomething.cs" />
-    <Compile Include="Migrations\201710232153342_ChangeSomething.Designer.cs">
-      <DependentUpon>201710232153342_ChangeSomething.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710232159381_ChangeSomething1.cs" />
-    <Compile Include="Migrations\201710232159381_ChangeSomething1.Designer.cs">
-      <DependentUpon>201710232159381_ChangeSomething1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710232204252_ChangeSomething2.cs" />
-    <Compile Include="Migrations\201710232204252_ChangeSomething2.Designer.cs">
-      <DependentUpon>201710232204252_ChangeSomething2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710232211217_ChangeSomething21.cs" />
-    <Compile Include="Migrations\201710232211217_ChangeSomething21.Designer.cs">
-      <DependentUpon>201710232211217_ChangeSomething21.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201710232257309_ChangeSomething22.cs" />
     <Compile Include="Migrations\201710232257309_ChangeSomething22.Designer.cs">
       <DependentUpon>201710232257309_ChangeSomething22.cs</DependentUpon>
@@ -278,6 +258,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Source\noimage.png" />
+    <Content Include="Source\wrappaper1.jpg" />
+    <Content Include="Source\wrappaper2.jpg" />
+    <Content Include="Source\wrappaper3.jpg" />
     <Content Include="Source\Ảnh màn hình_170924_000.jpg" />
     <Content Include="Source\Ảnh màn hình_170924_001.jpg" />
     <Content Include="Source\Ảnh màn hình_170927_000.jpg" />
@@ -340,21 +323,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710232034578_ChangeCarModelToId.resx">
       <DependentUpon>201710232034578_ChangeCarModelToId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710232055550_SomethingChange.resx">
-      <DependentUpon>201710232055550_SomethingChange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710232153342_ChangeSomething.resx">
-      <DependentUpon>201710232153342_ChangeSomething.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710232159381_ChangeSomething1.resx">
-      <DependentUpon>201710232159381_ChangeSomething1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710232204252_ChangeSomething2.resx">
-      <DependentUpon>201710232204252_ChangeSomething2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710232211217_ChangeSomething21.resx">
-      <DependentUpon>201710232211217_ChangeSomething21.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710232257309_ChangeSomething22.resx">
       <DependentUpon>201710232257309_ChangeSomething22.cs</DependentUpon>

@@ -50,9 +50,10 @@
                 </div>
 
                 <div class="col-md-2 item-info">
+                    
                     <h4>@(models.FormatMoney(models.Price))VNĐ</h4>
                     <h4>@(models.FormatMoney(models.PricePublic))VNĐ</h4>
-                    @Html.ActionLink("Xem Chi Tiết", "Index", "CarModels", new { id = models.Id }, new { @class = "item-button-view btn btn-primary"})
+                    @Html.ActionLink("Xem Chi Tiết", "Index", "CarModels", new {id = models.Id}, new {@class = "item-button-view btn btn-primary"})
                 </div>
             </div>
         </div>
