@@ -7,18 +7,18 @@ namespace WebXe.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CreateTableCarAndType : IMigrationMetadata
+    public sealed partial class ChangeSomething2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateTableCarAndType));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangeSomething2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710161530099_CreateTableCarAndType"; }
+            get { return "201710232204252_ChangeSomething2"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

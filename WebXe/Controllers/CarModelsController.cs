@@ -12,37 +12,28 @@ namespace WebXe.Controllers
     public class CarModelsController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
-        // GET: CarModels
-        public ActionResult Index()
+        public CarModelsController()
         {
-            return View();
+            _dbContext = new ApplicationDbContext();
         }
 
-        public ActionResult Create()
+        public ActionResult Index(int id)
         {
-            var viewModel = new CarViewModels
-            {
-                CarTypies = _dbContext.CarTypes.ToList()
-            };
-            return View(viewModel);
+            var model = _dbContext.CarModels.Find(id);
+            return View(model);
         }
 
-        [Authorize]
-        [HttpPost]
-        public ActionResult Insert(CarViewModels viewModel)
+        public FileContentResult GetImage(int imageid)
         {
-            var model = new CarModels
+            CarImages images = _dbContext.CarImages.Where(n => n.Id == imageid).Single();
+            try
             {
-                CreatedUserId = User.Identity.GetUserId(),
-                Title = viewModel.Title,
-                Content = viewModel.Content,
-                Name = viewModel.Name,
-                Price = viewModel.Price
-            };
-            _dbContext.CarModels.Add(model);
-            _dbContext.SaveChanges();
-
-            return RedirectToAction("Index", "Home");
+                return new FileContentResult(images.Image, "image/jpeg");
+            }
+            catch (Exception ex)
+            {
+            }
+            return null;
         }
     }
 }

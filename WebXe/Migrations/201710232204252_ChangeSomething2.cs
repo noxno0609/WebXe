@@ -3,7 +3,7 @@ namespace WebXe.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CreateTableCarAndType : DbMigration
+    public partial class ChangeSomething2 : DbMigration
     {
         public override void Up()
         {

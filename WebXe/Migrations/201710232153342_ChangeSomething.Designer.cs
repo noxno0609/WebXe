@@ -7,13 +7,13 @@ namespace WebXe.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class DefaultCarTypes : IMigrationMetadata
+    public sealed partial class ChangeSomething : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DefaultCarTypes));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangeSomething));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710161531385_DefaultCarTypes"; }
+            get { return "201710232153342_ChangeSomething"; }
         }
         
         string IMigrationMetadata.Source

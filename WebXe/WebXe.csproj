@@ -50,6 +50,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -197,18 +200,51 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710161530099_CreateTableCarAndType.cs" />
-    <Compile Include="Migrations\201710161530099_CreateTableCarAndType.Designer.cs">
-      <DependentUpon>201710161530099_CreateTableCarAndType.cs</DependentUpon>
+    <Compile Include="Migrations\201710231738392_Remake.cs" />
+    <Compile Include="Migrations\201710231738392_Remake.Designer.cs">
+      <DependentUpon>201710231738392_Remake.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710161531385_DefaultCarTypes.cs" />
-    <Compile Include="Migrations\201710161531385_DefaultCarTypes.Designer.cs">
-      <DependentUpon>201710161531385_DefaultCarTypes.cs</DependentUpon>
+    <Compile Include="Migrations\201710231739343_DefaultCarTypies.cs" />
+    <Compile Include="Migrations\201710231739343_DefaultCarTypies.Designer.cs">
+      <DependentUpon>201710231739343_DefaultCarTypies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231804575_DeleteTitleCarModel.cs" />
+    <Compile Include="Migrations\201710231804575_DeleteTitleCarModel.Designer.cs">
+      <DependentUpon>201710231804575_DeleteTitleCarModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710232034578_ChangeCarModelToId.cs" />
+    <Compile Include="Migrations\201710232034578_ChangeCarModelToId.Designer.cs">
+      <DependentUpon>201710232034578_ChangeCarModelToId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710232055550_SomethingChange.cs" />
+    <Compile Include="Migrations\201710232055550_SomethingChange.Designer.cs">
+      <DependentUpon>201710232055550_SomethingChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710232153342_ChangeSomething.cs" />
+    <Compile Include="Migrations\201710232153342_ChangeSomething.Designer.cs">
+      <DependentUpon>201710232153342_ChangeSomething.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710232159381_ChangeSomething1.cs" />
+    <Compile Include="Migrations\201710232159381_ChangeSomething1.Designer.cs">
+      <DependentUpon>201710232159381_ChangeSomething1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710232204252_ChangeSomething2.cs" />
+    <Compile Include="Migrations\201710232204252_ChangeSomething2.Designer.cs">
+      <DependentUpon>201710232204252_ChangeSomething2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710232211217_ChangeSomething21.cs" />
+    <Compile Include="Migrations\201710232211217_ChangeSomething21.Designer.cs">
+      <DependentUpon>201710232211217_ChangeSomething21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710232257309_ChangeSomething22.cs" />
+    <Compile Include="Migrations\201710232257309_ChangeSomething22.Designer.cs">
+      <DependentUpon>201710232257309_ChangeSomething22.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CarImages.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\CarModels.cs" />
-    <Compile Include="Models\CarTypes.cs" />
+    <Compile Include="Models\CarTypies.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="ViewModels\CarViewModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
@@ -222,12 +258,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -238,6 +277,10 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Source\noimage.png" />
+    <Content Include="Source\Ảnh màn hình_170924_000.jpg" />
+    <Content Include="Source\Ảnh màn hình_170924_001.jpg" />
+    <Content Include="Source\Ảnh màn hình_170927_000.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -272,33 +315,49 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Admin\Xe.cshtml" />
-    <Content Include="Views\Admin\Themmoixe.cshtml" />
-    <Content Include="Views\Admin\Chinhsua.cshtml" />
+    <Content Include="Views\Admin\AddCar.cshtml" />
+    <Content Include="Views\Admin\EditCar.cshtml" />
+    <Content Include="Views\CarModels\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\CarModels\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710161530099_CreateTableCarAndType.resx">
-      <DependentUpon>201710161530099_CreateTableCarAndType.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710231738392_Remake.resx">
+      <DependentUpon>201710231738392_Remake.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710161531385_DefaultCarTypes.resx">
-      <DependentUpon>201710161531385_DefaultCarTypes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710231739343_DefaultCarTypies.resx">
+      <DependentUpon>201710231739343_DefaultCarTypies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231804575_DeleteTitleCarModel.resx">
+      <DependentUpon>201710231804575_DeleteTitleCarModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710232034578_ChangeCarModelToId.resx">
+      <DependentUpon>201710232034578_ChangeCarModelToId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710232055550_SomethingChange.resx">
+      <DependentUpon>201710232055550_SomethingChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710232153342_ChangeSomething.resx">
+      <DependentUpon>201710232153342_ChangeSomething.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710232159381_ChangeSomething1.resx">
+      <DependentUpon>201710232159381_ChangeSomething1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710232204252_ChangeSomething2.resx">
+      <DependentUpon>201710232204252_ChangeSomething2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710232211217_ChangeSomething21.resx">
+      <DependentUpon>201710232211217_ChangeSomething21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710232257309_ChangeSomething22.resx">
+      <DependentUpon>201710232257309_ChangeSomething22.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

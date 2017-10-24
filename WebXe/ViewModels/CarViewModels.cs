@@ -9,20 +9,17 @@ namespace WebXe.ViewModels
 {
     public class CarViewModels
     {
-        [Required]
-        public string Title { get; set; }
-
-        [Required]
+        public int Id { get; set; }
         public string Content { get; set; }
-
-        [Required]
         public string Name { get; set; }
-
-        [Required]
         public int Price { get; set; }
-
-        [Required]
+        public int PricePublic { get; set; }
         public int CarType { get; set; }
-        public List<CarTypes> CarTypies { get; set; }
+
+        public IEnumerable<CarTypies> CarTypies { get; set; }
+
+        [Required(ErrorMessage = "Xin chọn file.")]
+        [Display(Name = "Chọn File")]
+        public HttpPostedFileBase[] Images { get; set; }
     }
 }

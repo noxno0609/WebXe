@@ -1,0 +1,42 @@
+﻿@model WebXe.ViewModels.CarViewModels
+@{
+    ViewBag.Title = "EditCar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("EditCar", "Admin"))
+{
+    @Html.AntiForgeryToken();
+    <div class="admin-content">
+        <h2>Chỉnh Sửa Xe</h2>
+        <form class="#">
+            <div class="form-group">
+                <label>Tên Xe:</label>
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Giá Xe:</label>
+                @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Màu:</label>
+                @Html.TextBoxFor(m => m.PricePublic, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Mô Tả:</label>
+                @Html.TextAreaFor(m => m.Content, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Loại Xe:</label>
+                @Html.DropDownListFor(m => m.CarType,
+                     new SelectList(Model.CarTypies, "Id", "Name"), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CarTypies)
+            </div>
+        </form>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Lưu" class="btn btn-primary" />
+        </div>
+    </div>
+}
+

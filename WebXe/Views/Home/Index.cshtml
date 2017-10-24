@@ -1,31 +1,77 @@
-﻿@{
+﻿@model List<WebXe.Models.CarModels>
+@{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<div class="main-content">
+    @foreach (var models in Model)
+    {
+    models.GetListImagesId();
+    <div class="item-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>@models.Name</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 item-image">
+                    @if (models.ListImages.Count > 0)
+                    {
+                    <img src="@Url.Action("GetImage", new { id = models.Id, indexa = 0 })"/>
+                    }
+                    else 
+                    {
+                    <img src="~/Source/noimage.png" />
+                    }
+                </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+                <div class="col-md-6 body">
+                    <div class="row item-description">
+                        <h4>@models.Content</h4>
+                    </div>
+                    <div class="row item-thumbnail">
+                        @if (models.ListImages.Count > 5)
+                        {
+                            for (int index = 1; index < 5; index++)
+                            {
+                            <img src="@Url.Action("GetImage", new { id = models.Id, indexa = index })" />
+                            }
+                        }
+                        else
+                        {
+                            for (int index = 1; index < models.ListImages.Count; index++)
+                            {
+                            <img src="@Url.Action("GetImage", new { id = models.Id, indexa = index })" />
+                            }
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-2 item-info">
+                    <h4>@(models.FormatMoney(models.Price))VNĐ</h4>
+                    <h4>@(models.FormatMoney(models.PricePublic))VNĐ</h4>
+                    @Html.ActionLink("Xem Chi Tiết", "Index", "CarModels", new { id = models.Id }, new { @class = "item-button-view btn btn-primary"})
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    }
+
+    <div class="pagination">
+        @Html.ActionLink("Sau", "Index", new { id = (ViewBag.NowPage <= 1) ? ViewBag.NowPage : ViewBag.NowPage-1 })
+        @foreach (int pages in Model.FirstOrDefault().GeneratePaginationList(ViewBag.NowPage, ViewBag.CountPage))
+        {
+            if (ViewBag.NowPage == pages)
+            {
+                @Html.ActionLink(pages.ToString(), "Index", new { id = pages }, new { @class = "active" })
+            }
+            else
+            {
+                @Html.ActionLink(pages.ToString(), "Index", new { id = pages })
+            }
+        }
+        @Html.ActionLink("Tiếp", "Index", new { id = (ViewBag.NowPage >= ViewBag.CountPage) ? ViewBag.NowPage : ViewBag.NowPage+1 })
     </div>
 </div>

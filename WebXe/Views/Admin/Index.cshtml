@@ -1,0 +1,42 @@
+﻿@model List<WebXe.Models.CarModels>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="admin-content">
+    <h2>QUẢN LÍ THÔNG TIN XE</h2>
+    <p>
+        @Html.ActionLink("Thêm Xe", "AddCar")
+    </p>
+
+    <table class="table" border="1">
+        <tr>
+            <th style="width:50px">STT</th>
+            <th style="width:200px">Tên Xe</th>
+            <th style="width:100px">Giá</th>
+            <th style="width:100px">Giá Thị Trường</th>
+            <th style="width:500px">Mô tả</th>
+            <th style="width:200px">Loại Xe</th>
+            <th style="width:500px"></th>
+        </tr>
+
+        @foreach (var models in Model)
+        {
+            <tr>
+                <td>@models.Id</td>
+                <td>@models.Name</td>
+                <td>@models.Price</td>
+                <td>@models.PricePublic</td>
+                <td>@models.Content</td>
+                <td>@models.CarType</td>
+                <td>
+                    @Html.ActionLink("Sửa", "EditCar", new { id = models.Id })
+                    @Html.ActionLink("Xóa", "DeleteCar", new { id = models.Id },
+                        new { onclick = "return confirm('Bạn có chắc chắn muốn xóa?');" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

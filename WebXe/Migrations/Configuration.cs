@@ -12,7 +12,7 @@ namespace WebXe.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(WebXe.Models.ApplicationDbContext context)

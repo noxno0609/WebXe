@@ -22,7 +22,8 @@ namespace WebXe.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<CarModels> CarModels { get; set; }
-        public DbSet<CarTypes> CarTypes { get; set; }
+        public DbSet<CarTypies> CarTypies { get; set; }
+        public DbSet<CarImages> CarImages { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

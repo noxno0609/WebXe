@@ -6,13 +6,14 @@ using System.Web;
 
 namespace WebXe.Models
 {
-    public class CarTypes
+    public class CarImages
     {
-        [Key]
         public int Id { get; set; }
+        
+        [Required]
+        public byte[] Image { get; set; }
 
         [Required]
-        [StringLength(255)]
-        public string Name { get; set; }
+        public int CarModelId { get; set; }
     }
 }
